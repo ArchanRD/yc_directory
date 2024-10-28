@@ -1,9 +1,10 @@
-import { formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Author, Startup } from "@/sanity/types";
+import { Skeleton } from "./ui/skeleton";
 
 export type StartupCardType = Omit<Startup, "author"> & { author?: Author}
 
@@ -50,7 +51,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
 
       <Link href={`/startup/${_id}`}>
         <p className="startup_card_desc line-clamp-2">{description}</p>
-        <img src={image} alt="card image" />
+        <img src={image} alt="card img" className="startup-card_img" />
       </Link>
       <div className="flex-between mt-5 gap-3">
         <Link href={`query/${category?.toLowerCase()}`}>
@@ -63,5 +64,15 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
     </li>
   );
 };
+
+export const StartCardSkeleton = () => (
+  <>
+  {[0,1,2,3,4].map((index:number) => (
+    <li key={cn('skeleton', index)}>
+      <Skeleton className="startup-card_skeleton" />
+    </li>
+  ))}
+  </>
+)
 
 export default StartupCard;

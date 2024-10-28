@@ -50,7 +50,7 @@ export const createPitch = async (
       status: "SUCCESS",
     });
   } catch (error) {
-    console.log(error);
+
     parseServerActionResponse({
       error: JSON.stringify(error),
       status: "ERROR",

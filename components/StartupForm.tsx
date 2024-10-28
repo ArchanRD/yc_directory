@@ -29,7 +29,6 @@ const StartupForm = () => {
       };
 
       await formSchema.parseAsync(formValues);
-      console.log(formValues);
       const result = await createPitch(prevState, formData, pitch);
 
       if (result.status == "SUCCESS") {
@@ -37,7 +36,6 @@ const StartupForm = () => {
           title: "Success",
           description: "Your startup pitch has been created sucessfully",
         });
-
         router.push(`/startup/${result._id}`);
       }
 
@@ -68,6 +66,7 @@ const StartupForm = () => {
     }
   };
 
+  /* tslint:disable:no-unused-variable */
   const [state, formAction, isPending] = useActionState(handleFormSubmit, {
     error: "",
     status: "INITIAL",
