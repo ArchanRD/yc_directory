@@ -9,7 +9,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     // 1. SignIn callback
     async signIn({ user, profile, account }) {
-      if (account?.provider === "github") {
         const sanityUser = await client
           .withConfig({ useCdn: false })
           .fetch(AUTHOR_BY_GITHUBID_QUERY, { id: profile?.id });
@@ -28,7 +27,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         // Attach the ID to the user object so it reaches the JWT callback
         user.id = profile?.id;
-      }
 
       return true;
     },
