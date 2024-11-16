@@ -10,8 +10,8 @@ const Skills = () => {
 
   const baseClass =
     "font-inter font-semibold bg-white shadow-md w-max py-2 px-6 rounded-lg cursor-pointer hover:bg-slate-50 active:text-white  active:bg-blue-600 transition ease-in-out select-none";
-  const handleActive = (event: any) => {
-    const button = event.target.innerHTML.toLowerCase();
+  const handleActive = (event: React.MouseEvent<HTMLHeadingElement>) => {
+    const button = event.currentTarget.innerHTML.toLowerCase();
 
     if (button === "web") {
       setweb(true);

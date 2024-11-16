@@ -50,7 +50,7 @@ const page = () => {
         </div>
         <div className="flex flex-col md:justify-end md:w-1/2">
           <p className="mt-4 font-inter text-lg md:text-base md:w-auto lg:text-lg xl:text-xl">
-            I'm <strong>Archan Dhrangadharia</strong>, building standout
+            I&apos;m <strong>Archan Dhrangadharia</strong>, building standout
             websites using cutting-edge tech for a strong digital footprint.
           </p>
           <Link
@@ -169,9 +169,6 @@ const page = () => {
                 imageHeight={project.imageHeight}
                 title={project.title}
                 buttonText={project.buttonText}
-                buttonBgColor={project.buttonBgColor}
-                buttonBorderColor={project.buttonBorderColor}
-                buttonLink={"#"}
                 tags={project.tags}
               />
             );

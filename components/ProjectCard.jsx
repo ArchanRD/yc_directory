@@ -7,10 +7,7 @@ const ProjectCard = ({
   imageHeight,
   title,
   buttonText,
-  buttonBgColor,
-  buttonBorderColor,
   tags,
-  buttonLink,
   projectLink,
 }) => {
   return (

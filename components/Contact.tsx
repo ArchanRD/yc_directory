@@ -23,7 +23,7 @@ const Contact = () => {
           },
           (error) => {
             toast.error("Error sending email");
-            console.log("error");
+            console.log("error:", error);
           }
         );
     }
@@ -43,7 +43,7 @@ const Contact = () => {
           className="-rotate-90 my-8"
         />
         <p className="font-generalSans text-lg text-gray-800 md:w-2/3 xl:text-xl">
-          Let's start a conversation! Feel free to contact me for projects,
+          Let&apos;s start a conversation! Feel free to contact me for projects,
           inquiries or anything else.
         </p>
       </div>

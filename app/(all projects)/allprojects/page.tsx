@@ -21,9 +21,6 @@ const page = () => {
                 imageHeight={project.imageHeight}
                 title={project.title}
                 buttonText={project.buttonText}
-                buttonBgColor={project.buttonBgColor}
-                buttonBorderColor={project.buttonBorderColor}
-                buttonLink={"#"}
                 key={project.key}
                 tags={project.tags}
               />

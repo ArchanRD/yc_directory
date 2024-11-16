@@ -15,8 +15,8 @@ import StartupCard, { StartupCardType } from "@/components/StartupCard";
 
 const md = markdownit();
 
-/* tslint:disable:no-unused-variable */
 const experimental_ppr = true;
+console.log(experimental_ppr);
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;

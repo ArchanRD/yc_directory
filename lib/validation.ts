@@ -14,6 +14,8 @@ export const formSchema = z.object({
 
         return contentType?.startsWith("image/");
       } catch (error) {
+        console.log(error)
+        throw new Error("Invalid URL or network error");
         return false;
       }
     }),
