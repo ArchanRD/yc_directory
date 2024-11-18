@@ -36,7 +36,7 @@ const StartupForm = () => {
           title: "Success",
           description: "Your startup pitch has been created sucessfully",
         });
-        router.push(`/startup/${result._id}`);
+        router.push(`/blog/startup/${result._id}`);
       }
 
       return result;
