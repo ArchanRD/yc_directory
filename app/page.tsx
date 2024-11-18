@@ -1,8 +1,8 @@
 import Link from "next/link";
-import WhatDoIdoCard from "../../components/WhatDoIdoCard";
-import WorkCard from "../../components/Cards/WorkCard";
-import { projects } from "../util";
-import ProjectCard from "../../components/ProjectCard";
+import WhatDoIdoCard from "../components/WhatDoIdoCard";
+import WorkCard from "../components/Cards/WorkCard";
+import { projects } from "./util";
+import ProjectCard from "../components/ProjectCard";
 import Skills from "@/components/Cards/Skills";
 import Social from "@/components/Cards/Social";
 import Contact from "@/components/Contact";
