@@ -18,7 +18,7 @@ const StartupForm = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const handleFormSubmit = async (prevState: any, formData: FormData) => {
+  const handleFormSubmit = async (prevState, formData: FormData) => {
     try {
       const formValues = {
         title: formData.get("title") as string,
@@ -36,7 +36,7 @@ const StartupForm = () => {
           title: "Success",
           description: "Your startup pitch has been created sucessfully",
         });
-        router.push(`/startup/${result._id}`);
+        router.push(`/blog/startup/${result._id}`);
       }
 
       return result;
@@ -67,7 +67,7 @@ const StartupForm = () => {
   };
 
   /* tslint:disable:no-unused-variable */
-  const [state, formAction, isPending] = useActionState(handleFormSubmit, {
+  const [, formAction, isPending] = useActionState(handleFormSubmit, {
     error: "",
     status: "INITIAL",
   });
