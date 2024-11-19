@@ -4,16 +4,19 @@ import {
 } from "@/sanity/lib/queries";
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
 import markdownit from "markdown-it";
+import { Skeleton } from "@/components/ui/skeleton";
+import View from "@/components/View";
 import StartupCard, { StartupCardType } from "@/components/StartupCard";
 
 const md = markdownit();
 
+/* tslint:disable:no-unused-variable */
 const experimental_ppr = true;
-console.log(experimental_ppr);
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
@@ -46,10 +49,10 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
           <div className="flex-between gap-5">
             <Link
-              href={`/blog/user/${post?.author?._id}`}
+              href={`/author/${post?.author?._id}`}
               className="flex gap-2 items-center mb-3"
             >
-              <img
+              <Image
                 src={post?.author?.image}
                 alt="author image"
                 width={64}
@@ -89,6 +92,10 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
             </ul>
           </div>
         )}
+
+        <Suspense fallback={<Skeleton className="view-skeleton" />}>
+          <View id={id} />
+        </Suspense>
       </section>
     </div>
   );

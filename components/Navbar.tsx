@@ -1,5 +1,6 @@
 import { auth, signOut, signIn } from "@/auth";
 import { LogOutIcon, PlusCircleIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -9,22 +10,13 @@ const Navbar = async () => {
   return (
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans text-black">
       <nav className="flex items-center justify-between">
-        <div className="flex items-center gap-5">
-          <Link href="/">
-            <h1 className="font-handlee text-gray-800 text-2xl font-bold">
-              archan
-            </h1>
-          </Link>
-          <Link href="/blog">
-            <h1 className="font-inter text-gray-500 text-xl">
-              Blogs
-            </h1>
-          </Link>
-        </div>
+        <Link href="/">
+          <Image src={"/logo.png"} alt="logo" width={144} height={30} />
+        </Link>
         <div className="flex items-center gap-5">
           {session && session?.user ? (
             <>
-              <Link href={"/blog/startup/create"}>
+              <Link href={"/startup/create"}>
                 <span className="max-sm:hidden">Create</span>
                 <PlusCircleIcon className="size-6 sm:hidden" />
               </Link>
@@ -41,7 +33,7 @@ const Navbar = async () => {
                 <LogOutIcon className="size-6 sm:hidden text-red-500" />
               </form>
 
-              <Link href={`/blog/user/${session?.id}`}>
+              <Link href={`/user/${session?.id}`}>
                 <span className="max-sm:hidden">{session?.user?.name}</span>
                 <Avatar className="size-10 sm:hidden">
                   <AvatarImage

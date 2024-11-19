@@ -3,6 +3,7 @@ import { StartCardSkeleton } from "@/components/StartupCard";
 import UserStartups from "@/components/UserStartups";
 import { client } from "@/sanity/lib/client";
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
@@ -25,7 +26,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
               {user?.name}
             </h3>
           </div>
-          <img
+          <Image
             src={user?.image}
             alt="user image"
             width={220}
