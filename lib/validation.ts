@@ -14,6 +14,7 @@ export const formSchema = z.object({
 
         return contentType?.startsWith("image/");
       } catch (error) {
+        console.log(error)
         return false;
       }
     }),

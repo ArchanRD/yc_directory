@@ -9,24 +9,26 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     // 1. SignIn callback
     async signIn({ user, profile, account }) {
-        const sanityUser = await client
-          .withConfig({ useCdn: false })
-          .fetch(AUTHOR_BY_GITHUBID_QUERY, { id: profile?.id });
+      const sanityUser = await client
+        .withConfig({ useCdn: false })
+        .fetch(AUTHOR_BY_GITHUBID_QUERY, { id: profile?.id });
 
-        if (!sanityUser) {
-          await writeClient.create({
-            _type: "author",
-            id: profile?.id,
-            name: user.name,
-            username: profile?.login,
-            email: user.email,
-            image: user.image,
-            bio: profile?.bio || "",
-          });
-        }
+      if (!sanityUser) {
+        await writeClient.create({
+          _type: "author",
+          id: profile?.id,
+          name: user.name,
+          username: profile?.login,
+          email: user.email,
+          image: user.image,
+          bio: profile?.bio || "",
+        });
+      }
 
-        // Attach the ID to the user object so it reaches the JWT callback
+      // Attach the ID to the user object so it reaches the JWT callback
+      if (profile?.id !== null) {
         user.id = profile?.id;
+      }
 
       return true;
     },

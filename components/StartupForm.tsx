@@ -67,7 +67,7 @@ const StartupForm = () => {
   };
 
   /* tslint:disable:no-unused-variable */
-  const [state, formAction, isPending] = useActionState(handleFormSubmit, {
+  const [, formAction, isPending] = useActionState(handleFormSubmit, {
     error: "",
     status: "INITIAL",
   });

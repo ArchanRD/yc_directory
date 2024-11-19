@@ -4,7 +4,6 @@ import {
 } from "@/sanity/lib/queries";
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import React, { Suspense } from "react";
@@ -17,6 +16,7 @@ const md = markdownit();
 
 /* tslint:disable:no-unused-variable */
 const experimental_ppr = true;
+console.log(experimental_ppr);
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
@@ -52,7 +52,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
               href={`/author/${post?.author?._id}`}
               className="flex gap-2 items-center mb-3"
             >
-              <Image
+              <img
                 src={post?.author?.image}
                 alt="author image"
                 width={64}
