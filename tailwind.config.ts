@@ -32,6 +32,7 @@ const config: Config = {
             },
             fontFamily: {
                 "work-sans": ["var(--font-work-sans)"],
+                "handlee": ["Handlee", "sans"]
             },
             borderRadius: {
                 lg: "var(--radius)",
