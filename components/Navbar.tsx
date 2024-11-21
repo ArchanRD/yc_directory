@@ -9,13 +9,18 @@ const Navbar = async () => {
   return (
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans text-black">
       <nav className="flex items-center justify-between">
-        <Link href="/">
-          <img src={"/logo.png"} alt="logo" width={144} height={30} />
-        </Link>
+        <div className="flex items-center gap-5">
+          <Link href="/">
+            <h1 className="font-handlee text-2xl font-bold">archan<span className="text-primary">Blogs</span></h1>
+          </Link>
+          <Link href="https://archan.dev">
+            <h1 className="font-work-sans hover:underline">Portfolio</h1>
+          </Link>
+        </div>
         <div className="flex items-center gap-5">
           {session && session?.user ? (
             <>
-              <Link href={"/startup/create"}>
+              <Link href={"/blog/create"}>
                 <span className="max-sm:hidden">Create</span>
                 <PlusCircleIcon className="size-6 sm:hidden" />
               </Link>

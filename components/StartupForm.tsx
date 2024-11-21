@@ -34,9 +34,9 @@ const StartupForm = () => {
       if (result.status == "SUCCESS") {
         toast({
           title: "Success",
-          description: "Your startup pitch has been created sucessfully",
+          description: "Your blog post has been created sucessfully",
         });
-        router.push(`/startup/${result._id}`);
+        router.push(`/blog/${result._id}`);
       }
 
       return result;
@@ -82,10 +82,10 @@ const StartupForm = () => {
           id="title"
           name="title"
           className="startup-form_input"
-          placeholder="Startup Title"
+          placeholder="Blog Title"
           required
         />
-        {errors.title && <p className="startup-form_errors">{errors.title}</p>}
+        {errors.title && <p className="startup-form_error">{errors.title}</p>}
       </div>
       <div>
         <label htmlFor="description" className="startup-form_label">
@@ -95,7 +95,7 @@ const StartupForm = () => {
           id="description"
           name="description"
           className="startup-form_textarea"
-          placeholder="Startup Description"
+          placeholder="Blog Description"
           required
         />
         {errors.description && (
@@ -110,7 +110,7 @@ const StartupForm = () => {
           id="category"
           name="category"
           className="startup-form_input"
-          placeholder="Startup Category"
+          placeholder="Blog Category"
           required
         />
         {errors.category && (
@@ -125,7 +125,7 @@ const StartupForm = () => {
           id="link"
           name="link"
           className="startup-form_input"
-          placeholder="Startup Image URL"
+          placeholder="Blog Image URL"
           required
         />
         {errors.link && <p className="startup-form_error">{errors.link}</p>}
@@ -143,7 +143,7 @@ const StartupForm = () => {
           style={{ borderRadius: 20, overflow: "hidden" }}
           textareaProps={{
             placeholder:
-              "Briefly tell us about your idea and what problem it solves",
+              "Write down your blog content here. You can use markdown syntax",
           }}
           previewOptions={{
             disallowedElements: ["style"],
@@ -156,7 +156,7 @@ const StartupForm = () => {
         className="startup-form_btn text-white"
         disabled={isPending}
       >
-        {isPending ? "Submitting..." : "Submit your pitch"}
+        {isPending ? "Creating..." : "Create your blog"}
         <Send className="size-6 ml-2" />
       </Button>
     </form>
